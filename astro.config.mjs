@@ -5,6 +5,6 @@ import preact from '@astrojs/preact';
 
 export default defineConfig({
   integrations: [tailwind(), preact()],
-  output: 'server',        // ensures server bundle is created
-  adapter: vercel(),       // serverless adapter only
+  output: 'server',       // necessary for serverless functions
+  adapter: vercel(),      // ONLY the serverless adapter
 });
