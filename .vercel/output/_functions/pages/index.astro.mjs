@@ -1,0 +1,166 @@
+/* empty css                                 */
+import { e as createComponent, f as createAstro, r as renderTemplate, k as renderSlot, l as renderHead, h as addAttribute, m as maybeRenderHead, n as renderScript, o as renderComponent } from '../chunks/astro/server_BTnS4FML.mjs';
+import 'piccolore';
+import 'clsx';
+export { renderers } from '../renderers.mjs';
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$Astro$4 = createAstro();
+const $$Layout = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
+  Astro2.self = $$Layout;
+  const {
+    title = "Clevercouch // High-Performance Digital Flagships",
+    description = "Clevercouch engineers zero-bloat, high-performance websites.",
+    image = "/og-image.webp"
+  } = Astro2.props;
+  return renderTemplate(_a || (_a = __template(['<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"', `><title>Clevercouch // High-Performance Digital Flagships</title><meta name="title" content="Clevercouch // High-Performance Digital Flagships"><meta name="description" content="Clevercouch engineers zero-bloat, high-performance websites. Specialized in technical SEO, lightning-fast load times, and custom architecture for modern brands."><meta property="og:type" content="website"><meta property="og:url" content="https://clevercouch.com/"><meta property="og:title" content="Clevercouch // Engineered for Control"><meta property="og:description" content="Stop paying the price for bloat. We build digital flagships on a foundation of pure speed and architectural purity."><meta property="og:image" content="/og-image.webp"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://clevercouch.com/"><meta property="twitter:title" content="Clevercouch // High-Performance Digital Flagships"><meta property="twitter:description" content="Zero bloat. Total control. We build the fastest sites on the web."><meta property="twitter:image" content="/og-image.webp"><link rel="canonical" href="https://clevercouch.com/"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="dns-prefetch" href="https://use.typekit.net"><link rel="stylesheet" href="https://use.typekit.net/emr2ogr.css" media="print" onload="this.media='all'"><link href="/@fs/styles/global.css" rel="stylesheet"><link href="/src/styles/global.css" rel="stylesheet"><script src="/src/js/custom.js" crossorigin="anonymous"><\/script>`, '</head> <body class="bg-blueprint font-sans text-charcoal selection:bg-sand-accent"> ', " </body></html>"])), addAttribute(Astro2.generator, "content"), renderHead(), renderSlot($$result, $$slots["default"]));
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/layouts/Layout.astro", void 0);
+
+const $$BlueprintToggler = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<button id="blueprint-toggle" class="relative inline-flex items-center h-6 w-11 rounded-full bg-charcoal/20 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sand-accent" aria-pressed="false"> <span class="sr-only">Toggle Blueprint Mode</span> <span id="toggle-dot" class="pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow transform translate-x-1 transition-transform duration-200"></span> </button> ${renderScript($$result, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/BlueprintToggler.astro?astro&type=script&index=0&lang.ts")}`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/BlueprintToggler.astro", void 0);
+
+const $$TopNavigation = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-parchment-light/50 border-b border-charcoal/10"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"> <a href="/" class="text-2xl font-sans font-bold text-charcoal tracking-tighter hover:text-sand-accent transition duration-300">
+Clevercouch<span class="text-sage-dark text-sm ml-1">//</span> </a> <nav class="hidden md:flex items-center space-x-8"> <div class="flex space-x-8 font-mono-subhead text-xs uppercase tracking-widest"> <a href="#methodology" class="text-charcoal-light hover:text-charcoal transition duration-300">Methodology</a> <a href="#case-study" class="text-charcoal-light hover:text-charcoal transition duration-300">Work</a> <a href="#pricing" class="text-charcoal-light hover:text-charcoal transition duration-300">Pricing</a> </div> <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-[10px] font-mono-subhead font-bold text-parchment-light bg-charcoal rounded-sm hover:bg-sand-accent hover:text-charcoal transition-all duration-300 uppercase tracking-[0.2em] shadow-sm active:scale-95">
+Start Audit
+</a> <div class="flex items-center space-x-3 border-r border-charcoal/10 pr-6 mr-6"> <span class="text-[10px] font-mono-subhead text-charcoal-light uppercase tracking-widest">Blueprint</span> ${renderComponent($$result, "BlueprintToggle", $$BlueprintToggler, {})} </div></nav> <div class="md:hidden"> <a href="#contact" class="text-[10px] font-mono-subhead font-bold text-charcoal border border-charcoal px-3 py-1 uppercase tracking-widest">Audit</a> </div> </div> </header>`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/TopNavigation.astro", void 0);
+
+const $$Hero = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<section id="hero" class="relative overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32 bg-parchment-light"> <div class="absolute inset-0 z-0 opacity-70"> <img src="https://clevercouch.s3.us-west-2.amazonaws.com/img/abstract-wave-min.png" alt="Abstract organic green and sand wave graphic" class="w-full h-full object-cover object-center pointer-events-none"> </div> <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <header class="max-w-4xl"> <h1 class="text-7xl md:text-8xl font-serif-heavy text-charcoal leading-none tracking-tight mb-6">
+Crafting Digital Flagships, Hand-Coded for <span class="text-sage-dark">Speed</span> & <span class="text-sand-accent">Story</span>.
+</h1> <p class="text-xl md:text-2xl text-charcoal-light mb-10 font-mono-subhead"> <span class="text-sage-dark">//</span> No Bloat. No Builders. Pure Performance.
+</p> </header> </div> </section>`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/Hero.astro", void 0);
+
+const $$Astro$3 = createAstro();
+const $$Content = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
+  Astro2.self = $$Content;
+  return renderTemplate`${maybeRenderHead()}<section id="methodology" class="py-24 bg-parchment-light"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <header class="mb-16 max-w-4xl"> <h2 class="text-xs font-mono-subhead text-sage-dark uppercase tracking-widest mb-4">
+Our Methodology
+</h2> <h3 class="text-5xl md:text-6xl font-serif-heavy text-charcoal leading-tight">
+Every project is a single-page mandate: <span class="text-sand-accent">Zero Bloat. Total Control.</span> </h3> </header> <div class="grid md:grid-cols-3 gap-10"> <div class="p-8 border border-charcoal/10 rounded-xl bg-white shadow-lg transition duration-300 hover:shadow-2xl"> <div class="text-3xl font-mono-subhead text-charcoal mb-4"> <span class="text-sage-dark">01</span> No Frameworks
+</div> <p class="text-base font-sans text-charcoal-light">
+We code in the fastest languages (Astro, vanilla JS, structured CSS) to eliminate runtime overhead and large client-side dependencies. **Your site is not an app; it’s a story.**
+</p> </div> <div class="p-8 border border-charcoal/10 rounded-xl bg-white shadow-lg transition duration-300 hover:shadow-2xl"> <div class="text-3xl font-mono-subhead text-charcoal mb-4"> <span class="text-sage-dark">02</span> Image First
+</div> <p class="text-base font-sans text-charcoal-light">
+Images are the primary source of bloat. We auto-serve next-gen formats (WebP, AVIF) at the perfect viewport size. **The highest quality at the smallest possible file size.**
+</p> </div> <div class="p-8 border border-charcoal/10 rounded-xl bg-white shadow-lg transition duration-300 hover:shadow-2xl"> <div class="text-3xl font-mono-subhead text-charcoal mb-4"> <span class="text-sage-dark">03</span> Editorial Mandate
+</div> <p class="text-base font-sans text-charcoal-light">
+We reject generic templates. Every element is designed to serve the content, ensuring a focused, high-end reader experience that drives conversions. **Design serves the story.**
+</p> </div> </div> </div> </section> <section id="case-study" class="py-32 bg-charcoal text-parchment-light"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <header class="mb-16 max-w-5xl"> <h2 class="text-xs font-mono-subhead text-sand-accent uppercase tracking-widest mb-4">
+Work in Focus
+</h2> <p class="text-5xl md:text-6xl font-serif-heavy leading-snug">
+Building digital flagship experiences that command attention, not resources.
+</p> </header> <div class="md:grid md:grid-cols-12 md:gap-12 items-center"> <div class="md:col-span-7 mb-8 md:mb-0 relative"> <div class="bg-gray-code h-100 rounded-lg overflow-hidden"> <p class="p-4 text-center text-sm font-mono-subhead text-hacker-green/80"> <img src="https://clevercouch.s3.us-west-2.amazonaws.com/img/mcmtechnology-min.png" class="w-full h-full object-cover object-center pointer-events-none" alt="Screenshot of mcmtechnology.com website"> </p> <div class="flex items-center justify-center h-full"></div> </div> </div> <div class="md:col-span-5"> <h4 class="text-3xl font-serif-heavy text-parchment-light mb-4">
+Mcmtechnology
+</h4> <ul class="font-mono-subhead text-sm space-y-3 mb-8"> <li class="flex justify-between border-b border-parchment-light/20 pb-1"> <span class="text-sand-accent">// Category</span> <span>Technology Company</span> </li> <li class="flex justify-between border-b border-parchment-light/20 pb-1"> <span class="text-sand-accent">// Performance</span> <span>Load Time: 0.8s</span> </li> <li class="flex justify-between border-b border-parchment-light/20 pb-1"> <span class="text-sand-accent">// Result</span> <span>Conversion Rate: +18%</span> </li> </ul> <p class="font-sans text-parchment-light/80 mb-8">
+We architected a custom, headless solution for Mcmtechnology, stripping away legacy bloat to deliver an authenticated, high-speed shopping experience that focused entirely on product storytelling.
+</p> <!-- <a 
+						href="/work/artisan-collection" 
+						class="inline-flex items-center justify-center px-8 py-3 text-base font-mono-subhead text-charcoal bg-sand-accent rounded-full hover:bg-parchment-light transition duration-300 uppercase tracking-widest"
+					>
+						View Case Study
+					</a> --> </div> </div> </div> </section> <section id="pricing" class="py-24 bg-white"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <header class="text-center mb-16"> <h2 class="text-xs font-mono-subhead text-sage-dark uppercase tracking-widest mb-4">
+Transparent Investment
+</h2> <p class="text-5xl md:text-6xl font-serif-heavy text-charcoal">
+Fixed Cost. Infinite Growth.
+</p> </header> <div class="grid md:grid-cols-2 gap-10"> <div class="p-10 border-2 border-charcoal rounded-xl shadow-2xl bg-parchment-light"> <h4 class="text-xs font-mono-subhead text-charcoal uppercase tracking-widest mb-2">
+Phase One
+</h4> <h3 class="text-4xl font-serif-heavy text-charcoal mb-6">
+Flagship Website Build
+</h3> <p class="text-5xl font-mono-subhead text-sand-accent mb-8">
+$15,000 <span class="text-xl text-charcoal-light">Fixed</span> </p> <p class="font-sans text-charcoal-light mb-8">
+The fixed-cost investment covers the full creative and technical development of your high-performance, custom digital flagship. It includes all design, development, content migration, and performance testing.
+</p> <ul class="space-y-3 font-mono-subhead text-sm text-charcoal mb-10"> <li class="flex items-start"> <span class="text-sage-dark mr-3 mt-1">//</span> Custom Astro/Tailwind Architecture
+</li> <li class="flex items-start"> <span class="text-sage-dark mr-3 mt-1">//</span> Image Optimization Pipeline
+</li> <li class="flex items-start"> <span class="text-sage-dark mr-3 mt-1">//</span> Full Content Management Setup (Headless CMS)
+</li> <li class="flex items-start"> <span class="text-sage-dark mr-3 mt-1">//</span> Performance Guarantee (95+ PageSpeed)
+</li> </ul> <a href="#contact" class="inline-block w-full text-center px-8 py-4 text-base font-mono-subhead text-parchment-light bg-charcoal rounded-lg hover:bg-sand-accent hover:text-charcoal transition duration-300 uppercase tracking-widest">
+Start Your Flagship
+</a> </div> <div class="p-10 border-2 border-sand-accent rounded-xl shadow-2xl bg-parchment-light"> <h4 class="text-xs font-mono-subhead text-sand-accent uppercase tracking-widest mb-2">
+Phase Two
+</h4> <h3 class="text-4xl font-serif-heavy text-charcoal mb-6">
+Growth Subscriptions
+</h3> <div class="mb-12 pt-10"> ${renderComponent($$result, "GrowthSlider", null, { "client:only": "preact", "client:component-hydration": "only", "client:component-path": "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/GrowthSlider.jsx", "client:component-export": "default" })} </div> <p class="font-sans text-charcoal-light mb-8">
+Choose a flexible monthly subscription tier based on the level of dedicated development, optimization, and content support your team requires for ongoing, competitive growth.
+</p> <div id="tier-features-container" class="space-y-3 font-mono-subhead text-sm text-charcoal mb-10"></div> <a href="#contact" class="inline-block w-full text-center px-8 py-4 text-base font-mono-subhead text-parchment-light bg-sand-accent rounded-lg hover:bg-charcoal transition duration-300 uppercase tracking-widest">
+Inquire About Tiers
+</a> </div> </div> </div> </section>`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/Content.astro", void 0);
+
+const $$Astro$2 = createAstro();
+const $$AboutUs = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
+  Astro2.self = $$AboutUs;
+  return renderTemplate`${maybeRenderHead()}<section id="manifesto" class="py-24 bg-parchment-light"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <header class="max-w-4xl mx-auto text-center mb-16"> <h2 class="text-xs font-mono-subhead text-sage-dark uppercase tracking-widest mb-4">
+Our Foundation
+</h2> <p class="text-5xl md:text-6xl font-serif-heavy text-charcoal leading-tight">
+The Clevercouch Manifesto: Engineered for Control.
+</p> </header> <div class="grid md:grid-cols-3 gap-12"> <div class="md:col-span-2 font-sans space-y-8 text-lg text-charcoal-dark"> <p>
+For too long, the digital landscape has been defined by **bloat, slow speeds, and vendor lock-in.** We founded Clevercouch to reverse this trend, establishing a model where performance isn't a feature—it's the baseline. Our philosophy is rooted in architectural purity and client autonomy.
+</p> <p>
+We reject the complexity of legacy systems and bloated frameworks. Instead, we custom-engineer static, headless architectures using modern tools like Astro and Tailwind. This approach gives you a website that is inherently faster, more secure, and cheaper to maintain than any traditional CMS solution.
+</p> <blockquote class="border-l-4 border-sand-accent pl-4 italic text-charcoal-light font-serif-heavy text-2xl">
+"We don't just optimize your site; we rebuild your foundation to eliminate the need for optimization."
+</blockquote> </div> <div class="md:col-span-1 border-2 border-charcoal p-8 rounded-xl bg-parchment-dark"> <h3 class="text-xl font-mono-subhead text-charcoal uppercase tracking-widest mb-6">
+Three Pillars of Purity
+</h3> <ul class="space-y-6"> <li> <h4 class="text-sage-dark font-mono-subhead mb-1">// Static Core</h4> <p class="text-sm font-sans text-charcoal-dark">
+We pre-render all content to deliver pure HTML/CSS, eliminating server-side processing delays and ensuring instant load times (Time to First Byte less than 50ms).
+</p> </li> <li> <h4 class="text-sage-dark font-mono-subhead mb-1">// Headless CMS</h4> <p class="text-sm font-sans text-charcoal-dark">
+Content is decoupled from presentation. You own your data entirely, granting flexibility to manage content from any preferred system without vendor lock-in.
+</p> </li> <li> <h4 class="text-sage-dark font-mono-subhead mb-1">// Ownership & Training</h4> <p class="text-sm font-sans text-charcoal-dark">
+Every project concludes with full code ownership and dedicated training, ensuring your team has the control and knowledge to manage the flagship effectively.
+</p> </li> </ul> </div> </div> <div class="text-center mt-16 pt-12 border-t border-sand-accent/50"> <p class="text-xl font-serif-heavy text-charcoal mb-6">
+Ready for a partner defined by performance, not promises?
+</p> <a href="#contact" class="inline-block px-10 py-4 text-base font-mono-subhead text-parchment-light bg-charcoal rounded-lg hover:bg-sand-accent hover:text-charcoal transition duration-300 uppercase tracking-widest shadow-xl">
+Schedule Your Architecture Review
+</a> </div> </div> </section>`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/AboutUs.astro", void 0);
+
+const $$ContactUs = createComponent(async ($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<section id="contact" class="py-24 bg-transparent border-t border-charcoal/10"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="max-w-xl mx-auto"> <form id="contact-form" class="space-y-6 p-8 bg-white rounded-xl shadow-2xl border border-sand-accent/50 transition-opacity duration-300"> <div id="form-content" class="space-y-6"> <p class="text-charcoal-dark/80 text-center font-sans">
+Ready to start your architecture review? Let's talk.
+</p> <div> <label for="name" class="block text-sm font-mono-subhead text-charcoal mb-1">Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-charcoal/30 rounded-lg focus:border-sand-accent focus:ring-1 focus:ring-sand-accent outline-none"> </div> <div> <label for="email" class="block text-sm font-mono-subhead text-charcoal mb-1">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-charcoal/30 rounded-lg focus:border-sand-accent focus:ring-1 focus:ring-sand-accent outline-none"> </div> <div> <label for="message" class="block text-sm font-mono-subhead text-charcoal mb-1">Project Details</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-charcoal/30 rounded-lg focus:border-sand-accent focus:ring-1 focus:ring-sand-accent outline-none"></textarea> </div> <button type="submit" id="submit-btn" class="w-full px-8 py-4 text-base font-mono-subhead text-parchment-light bg-charcoal rounded-lg hover:bg-sand-accent hover:text-charcoal transition-all duration-300 uppercase tracking-widest">
+Send Inquiry
+</button> </div></form> </div> </div></section> ${renderScript($$result, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/ContactUs.astro?astro&type=script&index=0&lang.ts")}`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/ContactUs.astro", void 0);
+
+const $$Astro$1 = createAstro();
+const $$Footer = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  Astro2.self = $$Footer;
+  return renderTemplate`${maybeRenderHead()}<footer class="bg-charcoal text-parchment-light py-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="md:flex md:justify-between md:items-start border-b border-sand-accent/30 pb-10 mb-8"> <div class="mb-8 md:mb-0"> <a href="/" class="text-3xl font-sans-serif-heavy text-parchment-light tracking-tighter">
+Clevercouch<span class="text-sand-accent text-sm ml-1">//</span> </a> <p class="mt-2 text-sm font-sans text-parchment-light/60 max-w-xs">
+Digital flagships built on a foundation of pure performance. Zero bloat, total control.
+</p> </div> <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"> <div> <h3 class="text-sm font-mono-subhead uppercase tracking-wider text-sand-accent mb-4">Quick Links</h3> <ul class="space-y-2 text-sm font-sans text-parchment-light/80"> <li><a href="#methodology" class="hover:text-sand-accent transition duration-300">Our Method</a></li> <li><a href="#case-study" class="hover:text-sand-accent transition duration-300">Case Studies</a></li> <li><a href="#pricing" class="hover:text-sand-accent transition duration-300">Pricing Models</a></li> </ul> </div> <div> <h3 class="text-sm font-mono-subhead uppercase tracking-wider text-sand-accent mb-4">Legal</h3> <ul class="space-y-2 text-sm font-sans text-parchment-light/80"> <li><a href="/privacy" class="hover:text-sand-accent transition duration-300">Privacy Policy</a></li> <li><a href="/terms" class="hover:text-sand-accent transition duration-300">Terms of Service</a></li> </ul> </div> <div> <h3 class="text-sm font-mono-subhead uppercase tracking-wider text-sand-accent mb-4">Contact</h3> <ul class="space-y-2 text-sm font-sans text-parchment-light/80"> <li><a href="mailto:contact@clevercouch.com" class="hover:text-sand-accent transition duration-300">Email Us</a></li> <li><a href="#contact" class="hover:text-sand-accent transition duration-300">Schedule a Call</a></li> </ul> </div> </div> </div> <div class="text-center md:text-left text-xs font-sans text-parchment-light/50 pt-4">
+&copy; ${(/* @__PURE__ */ new Date()).getFullYear()} Clevercouch. All rights reserved. Built with Astro for pure performance.
+</div> </div> </footer>`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/components/Footer.astro", void 0);
+
+const $$Astro = createAstro();
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Index;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "TopNavigation", $$TopNavigation, {})} ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Content", $$Content, {})} ${renderComponent($$result2, "AboutUs", $$AboutUs, {})} ${renderComponent($$result2, "ContactUs", $$ContactUs, {})} ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
+}, "/Users/bradmclaughlin/Projects/clevercouch.com/src/pages/index.astro", void 0);
+
+const $$file = "/Users/bradmclaughlin/Projects/clevercouch.com/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: $$Index,
+	file: $$file,
+	url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

@@ -1,72 +1,73 @@
-<section id="contact" class="py-24 bg-parchment-light border-t border-sand-accent/20">
-	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section id="contact" class="py-24 bg-transparent border-t border-charcoal/10">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		
-		<header class="mb-12">
-			<h2 class="text-xs font-mono-subhead text-sage-dark uppercase tracking-widest mb-4">
-				Get Started
-			</h2>
-			<p class="text-5xl md:text-6xl font-serif-heavy text-charcoal leading-tight">
-				Ready to shed the bloat? Let's talk performance.
-			</p>
-		</header>
-
-		<form 
-			name="contact-form" 
-			method="POST" 
-			action="/api/contact"
-			class="space-y-6 text-left">
-			
-			<input type="hidden" name="form-name" value="contact-form" />
-
-			<div>
-				<label for="name" class="block text-sm font-mono-subhead text-charcoal-light mb-2">Your Name / Company</label>
-				<input 
-					type="text" 
-					id="name" 
-					name="name" 
-					required
-					class="w-full px-4 py-3 border border-charcoal/30 bg-white rounded-lg font-mono-subhead text-charcoal placeholder-charcoal-light/70 focus:border-sand-accent focus:ring-1 focus:ring-sand-accent transition duration-150"
-					placeholder="Jane Doe / Acme Corp"
-				>
-			</div>
-
-			<div>
-				<label for="email" class="block text-sm font-mono-subhead text-charcoal-light mb-2">Work Email</label>
-				<input 
-					type="email" 
-					id="email" 
-					name="email" 
-					required
-					class="w-full px-4 py-3 border border-charcoal/30 bg-white rounded-lg font-mono-subhead text-charcoal placeholder-charcoal-light/70 focus:border-sand-accent focus:ring-1 focus:ring-sand-accent transition duration-150"
-					placeholder="hello@example.com"
-				>
-			</div>
-
-			<div>
-				<label for="project" class="block text-sm font-mono-subhead text-charcoal-light mb-2">Tell Us About Your Project (Goals, Deadline, Current URL)</label>
-				<textarea 
-					id="project" 
-					name="project" 
-					rows="4" 
-					required
-					class="w-full px-4 py-3 border border-charcoal/30 bg-white rounded-lg font-mono-subhead text-charcoal placeholder-charcoal-light/70 focus:border-sand-accent focus:ring-1 focus:ring-sand-accent transition duration-150"
-					placeholder="We need a 98+ PageSpeed score and a new e-commerce storefront by Q3."
-				></textarea>
-			</div>
-
-			<div class="pt-4">
-				<button 
-					type="submit" 
-					class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-mono-subhead text-parchment-light bg-charcoal rounded-lg hover:bg-sand-accent hover:text-charcoal transition duration-300 uppercase tracking-widest shadow-lg"
-				>
-					Send Inquiry & Secure Audit
-				</button>
-			</div>
-
-			<p class="text-xs text-center font-sans text-sage-dark pt-4">
-				*We aim for zero bloat, even on our contact form. Submissions handled securely and quickly.
-			</p>
-
-		</form>
+		<div class="max-w-xl mx-auto">
+			<form id="contact-form" class="space-y-6 p-8 bg-white rounded-xl shadow-2xl border border-sand-accent/50 transition-opacity duration-300">
+				<div id="form-content" class="space-y-6">
+					<p class="text-charcoal-dark/80 text-center font-sans">
+						Ready to start your architecture review? Let's talk.
+					</p>
+					
+					<div>
+						<label for="name" class="block text-sm font-mono-subhead text-charcoal mb-1">Name</label>
+						<input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-charcoal/30 rounded-lg focus:border-sand-accent focus:ring-1 focus:ring-sand-accent outline-none" />
+					</div>
+					
+					<div>
+						<label for="email" class="block text-sm font-mono-subhead text-charcoal mb-1">Email</label>
+						<input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-charcoal/30 rounded-lg focus:border-sand-accent focus:ring-1 focus:ring-sand-accent outline-none" />
+					</div>
+					
+					<div>
+						<label for="message" class="block text-sm font-mono-subhead text-charcoal mb-1">Project Details</label>
+						<textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-charcoal/30 rounded-lg focus:border-sand-accent focus:ring-1 focus:ring-sand-accent outline-none"></textarea>
+					</div>
+					
+					<button type="submit" id="submit-btn" class="w-full px-8 py-4 text-base font-mono-subhead text-parchment-light bg-charcoal rounded-lg hover:bg-sand-accent hover:text-charcoal transition-all duration-300 uppercase tracking-widest">
+						Send Inquiry
+					</button>
+			</form>
+		</div>
 	</div>
 </section>
+
+<script>
+	const form = document.getElementById('contact-form');
+	const formContent = document.getElementById('form-content');
+	const successMsg = document.getElementById('success-msg');
+	const errorMsg = document.getElementById('error-msg');
+	const submitBtn = document.getElementById('submit-btn');
+
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		
+		// Disable button to prevent double-submit
+		if (submitBtn) {
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Sending...';
+		}
+
+		const formData = new FormData(form);
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				body: formData
+			});
+
+			if (response.ok) {
+				// Success!
+				formContent?.classList.add('hidden');
+				successMsg?.classList.remove('hidden');
+			} else {
+				throw new Error('Server error');
+			}
+		} catch (err) {
+			errorMsg?.classList.remove('hidden');
+			if (submitBtn) {
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Send Inquiry';
+			}
+		}
+	});
+</script>

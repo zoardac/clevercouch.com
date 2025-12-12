@@ -1,10 +1,23 @@
 // astro.config.mjs
-
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind'; // This is the module we just installed
-
+import tailwind from '@astrojs/tailwind';
 import preact from '@astrojs/preact';
+import vercel from '@astrojs/vercel'; // Ensure this is installed via npm install @astrojs/vercel
 
 export default defineConfig({
-  integrations: [tailwind(), preact()], // This is how the integration is used
+  // 🛑 Ensure all integrations are in the array
+  integrations: [tailwind(), preact()],
+  
+  // 🛑 This tells Astro to generate a server-side build for Vercel
+  output: 'server',
+  
+  // 🛑 The adapter configuration
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+    // Optional: Choose 'edge' or 'serverless'
+    // 'serverless' is standard and very reliable for forms
+    functionPerRoute: false, 
+  }),
 });
