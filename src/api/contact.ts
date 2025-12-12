@@ -11,10 +11,9 @@ async function sendProjectInquiry(name: string, email: string, message: string):
 	try {
 		const { data, error } = await resend.emails.send({
 			// 🛑 CRITICAL: Replace with your VERIFIED sender email
-			from: 'Clevercouch Contact <onboarding@clevercouch.com>', 
-			
-			// 🛑 CRITICAL: Replace with YOUR actual receiving email address
-			to: 'you@clevercouch.com', 
+			// Temporary test in src/pages/api/contact.ts
+			from: 'onboarding@resend.dev',
+			to: 'your-personal-email@gmail.com', // Must be the email you signed up for Resend with
 			
 			subject: `New Project Inquiry from ${name}`,
 			reply_to: email, // Allows you to hit 'Reply' directly
