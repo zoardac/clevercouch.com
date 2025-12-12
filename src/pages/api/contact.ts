@@ -1,3 +1,4 @@
+console.log("RESEND KEY:", import.meta.env.RESEND_API_KEY);
 export const prerender = false; // 🛑 Tells Astro NOT to build this as a static file
 // src/pages/api/contact.ts
 import type { APIRoute } from 'astro';
