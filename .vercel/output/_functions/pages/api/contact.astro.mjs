@@ -3,6 +3,7 @@ export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
 const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC") ;
+const TEST_MODE = true;
 const POST = async ({
   request
 }) => {
@@ -19,6 +20,7 @@ const POST = async ({
     console.log("Resend API key exists:", true);
     console.log("FROM_EMAIL:", undefined                          );
     console.log("TO_EMAIL:", undefined                        );
+    console.log("TEST_MODE:", TEST_MODE);
     if (!name || !email || !message) {
       return new Response(JSON.stringify({
         message: "Missing required fields.",
@@ -29,6 +31,14 @@ const POST = async ({
         }
       }), {
         status: 400
+      });
+    }
+    if (TEST_MODE) {
+      console.log("TEST_MODE enabled – skipping actual email send.");
+      return new Response(JSON.stringify({
+        message: "Test mode: form submitted successfully (email not sent)."
+      }), {
+        status: 200
       });
     }
     if (!resend) {

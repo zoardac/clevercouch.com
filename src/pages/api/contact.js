@@ -7,6 +7,9 @@ const resend = import.meta.env.RESEND_API_KEY
   ? new Resend(import.meta.env.RESEND_API_KEY)
   : null;
 
+// Toggle this to true to skip sending actual emails
+const TEST_MODE = true;
+
 export const POST = async ({ request }) => {
   try {
 	const formData = await request.formData();
@@ -18,12 +21,20 @@ export const POST = async ({ request }) => {
 	console.log("Resend API key exists:", !!import.meta.env.RESEND_API_KEY);
 	console.log("FROM_EMAIL:", import.meta.env.FROM_EMAIL);
 	console.log("TO_EMAIL:", import.meta.env.TO_EMAIL);
+	console.log("TEST_MODE:", TEST_MODE);
 
 	if (!name || !email || !message) {
 	  return new Response(JSON.stringify({
 		message: 'Missing required fields.',
 		debug: { name, email, message }
 	  }), { status: 400 });
+	}
+
+	if (TEST_MODE) {
+	  console.log("TEST_MODE enabled – skipping actual email send.");
+	  return new Response(JSON.stringify({
+		message: "Test mode: form submitted successfully (email not sent)."
+	  }), { status: 200 });
 	}
 
 	if (!resend) {
