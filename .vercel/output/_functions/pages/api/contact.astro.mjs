@@ -1,7 +1,6 @@
 import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
-console.log("RESEND KEY:", "re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC");
 const prerender = false;
 const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC");
 async function sendProjectInquiry(name, email, message) {
@@ -10,14 +9,11 @@ async function sendProjectInquiry(name, email, message) {
       data,
       error
     } = await resend.emails.send({
-      // 🛑 CRITICAL: Replace with your VERIFIED sender email
-      // Temporary test in src/pages/api/contact.ts
       from: "onboarding@resend.dev",
       to: "your-personal-email@gmail.com",
-      // Must be the email you signed up for Resend with
+      // replace with your real email
       subject: `New Project Inquiry from ${name}`,
       reply_to: email,
-      // Allows you to hit 'Reply' directly
       html: `
 				<p><strong>New Inquiry Received!</strong></p>
 				<hr>
@@ -35,18 +31,18 @@ async function sendProjectInquiry(name, email, message) {
     }
     console.log("Email sent successfully:", data);
     return true;
-  } catch (error) {
-    console.error("Email Sending Exception:", error);
+  } catch (err) {
+    console.error("Email Sending Exception:", err);
     return false;
   }
 }
 const POST = async ({
   request
 }) => {
-  const data = await request.formData();
-  const name = data.get("name")?.toString();
-  const email = data.get("email")?.toString();
-  const message = data.get("message")?.toString();
+  const formData = await request.formData();
+  const name = formData.get("name")?.toString();
+  const email = formData.get("email")?.toString();
+  const message = formData.get("message")?.toString();
   if (!name || !email || !message) {
     return new Response(JSON.stringify({
       message: "Missing required fields."
@@ -63,7 +59,7 @@ const POST = async ({
     });
   } else {
     return new Response(JSON.stringify({
-      message: "Email service failed. Please check server logs."
+      message: "Email service failed."
     }), {
       status: 500
     });
