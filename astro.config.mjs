@@ -18,6 +18,9 @@ export default defineConfig({
     },
     // Optional: Choose 'edge' or 'serverless'
     // 'serverless' is standard and very reliable for forms
+    adapter: vercel({
+    // 🛑 Adding this ensures the entry file is generated where Vercel expects it
+    webAnalytics: { enabled: true },
     functionPerRoute: false, 
   }),
 });
