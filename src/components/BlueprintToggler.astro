@@ -1,0 +1,46 @@
+---
+---
+<button 
+  id="blueprint-toggle" 
+  class="relative inline-flex items-center h-6 w-11 rounded-full bg-charcoal/20 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sand-accent"
+  aria-pressed="false"
+>
+  <span class="sr-only">Toggle Blueprint Mode</span>
+  <span 
+	id="toggle-dot"
+	class="pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow transform translate-x-1 transition-transform duration-200"
+  ></span>
+</button>
+
+<script>
+  const toggle = document.getElementById('blueprint-toggle');
+  const dot = document.getElementById('toggle-dot');
+  const body = document.body;
+
+  // Check local storage for preference
+  const isBlueprint = localStorage.getItem('blueprint-mode') === 'true';
+  
+  function updateUI(active) {
+	if (active) {
+	  body.classList.add('bg-blueprint');
+	  toggle.classList.replace('bg-charcoal/20', 'bg-sage-dark');
+	  dot.classList.replace('translate-x-1', 'translate-x-6');
+	  toggle.setAttribute('aria-pressed', 'true');
+	} else {
+	  body.classList.remove('bg-blueprint');
+	  toggle.classList.replace('bg-sage-dark', 'bg-charcoal/20');
+	  dot.classList.replace('translate-x-6', 'translate-x-1');
+	  toggle.setAttribute('aria-pressed', 'false');
+	}
+  }
+
+  // Initialize
+  updateUI(isBlueprint);
+
+  toggle?.addEventListener('click', () => {
+	const currentState = body.classList.contains('bg-blueprint');
+	const newState = !currentState;
+	localStorage.setItem('blueprint-mode', String(newState));
+	updateUI(newState);
+  });
+</script>

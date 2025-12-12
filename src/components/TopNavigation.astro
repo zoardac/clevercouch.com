@@ -1,24 +1,35 @@
-<header class="sticky top-0 z-40 w-full backdrop-blur-md bg-parchment-light/80 border-b border-charcoal/10">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+---
+import BlueprintToggle from '../components/BlueprintToggler.astro';
+---
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-parchment-light/50 border-b border-charcoal/10">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
 		
-		<a href="/" class="text-2xl font-sans-serif-heavy text-charcoal tracking-tighter hover:text-sand-accent transition duration-300">
+		<a href="/" class="text-2xl font-sans font-bold text-charcoal tracking-tighter hover:text-sand-accent transition duration-300">
 			Clevercouch<span class="text-sage-dark text-sm ml-1">//</span>
 		</a>
 
-		<nav class="hidden md:flex space-x-8 font-mono-subhead text-sm uppercase tracking-wider">
-			<a href="#methodology" class="text-charcoal-light hover:text-charcoal transition duration-300">Methodology</a>
-			<a href="#case-study" class="text-charcoal-light hover:text-charcoal transition duration-300">Work</a>
-			<a href="#pricing" class="text-charcoal-light hover:text-charcoal transition duration-300">Pricing</a>
-		</nav>
+		<nav class="hidden md:flex items-center space-x-8">
+			
+			<div class="flex space-x-8 font-mono-subhead text-xs uppercase tracking-widest">
+				<a href="#methodology" class="text-charcoal-light hover:text-charcoal transition duration-300">Methodology</a>
+				<a href="#case-study" class="text-charcoal-light hover:text-charcoal transition duration-300">Work</a>
+				<a href="#pricing" class="text-charcoal-light hover:text-charcoal transition duration-300">Pricing</a>
+			</div>
 
-		<div>
 			<a 
 				href="#contact" 
-				class="inline-flex items-center px-5 py-2 text-sm font-mono-subhead text-charcoal bg-sand-accent rounded-full hover:bg-charcoal hover:text-parchment-light transition duration-300 uppercase tracking-widest shadow-md"
+				class="inline-flex items-center px-5 py-2.5 text-[10px] font-mono-subhead font-bold text-parchment-light bg-charcoal rounded-sm hover:bg-sand-accent hover:text-charcoal transition-all duration-300 uppercase tracking-[0.2em] shadow-sm active:scale-95"
 			>
 				Start Audit
 			</a>
+			<div class="flex items-center space-x-3 border-r border-charcoal/10 pr-6 mr-6">
+			<span class="text-[10px] font-mono-subhead text-charcoal-light uppercase tracking-widest">Blueprint</span>
+			<BlueprintToggle />
+		</nav>
+
+		<div class="md:hidden">
+			 <a href="#contact" class="text-[10px] font-mono-subhead font-bold text-charcoal border border-charcoal px-3 py-1 uppercase tracking-widest">Audit</a>
 		</div>
 		
-		</div>
+	</div>
 </header>
