@@ -2,13 +2,11 @@ export const prerender = false;
 
 import { Resend } from 'resend';
 
-// Only initialize Resend if API key exists
-const resend = import.meta.env.RESEND_API_KEY
-  ? new Resend(import.meta.env.RESEND_API_KEY)
-  : null;
+// Initialize Resend
+const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-// Toggle this to true to skip sending actual emails
-const TEST_MODE = true;
+// Turn OFF test mode
+const TEST_MODE = false;
 
 export const POST = async ({ request }) => {
   try {
@@ -18,10 +16,6 @@ export const POST = async ({ request }) => {
 	const message = formData.get('message')?.toString();
 
 	console.log("Form submission received:", { name, email, message });
-	console.log("Resend API key exists:", !!import.meta.env.RESEND_API_KEY);
-	console.log("FROM_EMAIL:", import.meta.env.FROM_EMAIL);
-	console.log("TO_EMAIL:", import.meta.env.TO_EMAIL);
-	console.log("TEST_MODE:", TEST_MODE);
 
 	if (!name || !email || !message) {
 	  return new Response(JSON.stringify({
@@ -30,42 +24,32 @@ export const POST = async ({ request }) => {
 	  }), { status: 400 });
 	}
 
-	if (TEST_MODE) {
-	  console.log("TEST_MODE enabled – skipping actual email send.");
-	  return new Response(JSON.stringify({
-		message: "Test mode: form submitted successfully (email not sent)."
-	  }), { status: 200 });
-	}
-
-	if (!resend) {
-	  return new Response(JSON.stringify({
-		message: "Server misconfiguration: Resend API key missing."
-	  }), { status: 500 });
-	}
-
 	if (!import.meta.env.FROM_EMAIL || !import.meta.env.TO_EMAIL) {
 	  return new Response(JSON.stringify({
 		message: "Server misconfiguration: FROM_EMAIL or TO_EMAIL missing."
 	  }), { status: 500 });
 	}
 
-	await resend.emails.send({
-	  from: import.meta.env.FROM_EMAIL,
-	  to: import.meta.env.TO_EMAIL,
-	  subject: `New Project Inquiry from ${name}`,
-	  reply_to: email,
-	  html: `
-		<p><strong>New Inquiry Received!</strong></p>
-		<hr>
-		<p><strong>Name:</strong> ${name}</p>
-		<p><strong>Email:</strong> ${email}</p>
-		<p><strong>Message:</strong></p>
-		<p>${message.replace(/\n/g, '<br>')}</p>
-	  `,
-	});
+	// Only send email if TEST_MODE is false
+	if (!TEST_MODE) {
+	  await resend.emails.send({
+		from: import.meta.env.FROM_EMAIL,
+		to: import.meta.env.TO_EMAIL,
+		subject: `New Project Inquiry from ${name}`,
+		reply_to: email,
+		html: `
+		  <p><strong>New Inquiry Received!</strong></p>
+		  <hr>
+		  <p><strong>Name:</strong> ${name}</p>
+		  <p><strong>Email:</strong> ${email}</p>
+		  <p><strong>Message:</strong></p>
+		  <p>${message.replace(/\n/g, '<br>')}</p>
+		`,
+	  });
+	  console.log("Email sent successfully!");
+	}
 
-	console.log("Email sent successfully!");
-	return new Response(JSON.stringify({ message: 'Success! Your inquiry has been sent.' }), { status: 200 });
+	return new Response(JSON.stringify({ message: 'Your inquiry has been sent successfully!' }), { status: 200 });
 
   } catch (err) {
 	console.error("Error sending email:", err);

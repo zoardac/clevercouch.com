@@ -2,8 +2,8 @@ import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
-const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC") ;
-const TEST_MODE = true;
+const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC");
+const TEST_MODE = false;
 const POST = async ({
   request
 }) => {
@@ -17,10 +17,6 @@ const POST = async ({
       email,
       message
     });
-    console.log("Resend API key exists:", true);
-    console.log("FROM_EMAIL:", undefined                          );
-    console.log("TO_EMAIL:", undefined                        );
-    console.log("TEST_MODE:", TEST_MODE);
     if (!name || !email || !message) {
       return new Response(JSON.stringify({
         message: "Missing required fields.",
@@ -33,45 +29,26 @@ const POST = async ({
         status: 400
       });
     }
-    if (TEST_MODE) {
-      console.log("TEST_MODE enabled – skipping actual email send.");
-      return new Response(JSON.stringify({
-        message: "Test mode: form submitted successfully (email not sent)."
-      }), {
-        status: 200
+    if (false) ;
+    if (!TEST_MODE) {
+      await resend.emails.send({
+        from: "brad.mclaughlin@gmail.com",
+        to: "onboarding@resend.dev",
+        subject: `New Project Inquiry from ${name}`,
+        reply_to: email,
+        html: `
+		  <p><strong>New Inquiry Received!</strong></p>
+		  <hr>
+		  <p><strong>Name:</strong> ${name}</p>
+		  <p><strong>Email:</strong> ${email}</p>
+		  <p><strong>Message:</strong></p>
+		  <p>${message.replace(/\n/g, "<br>")}</p>
+		`
       });
+      console.log("Email sent successfully!");
     }
-    if (!resend) {
-      return new Response(JSON.stringify({
-        message: "Server misconfiguration: Resend API key missing."
-      }), {
-        status: 500
-      });
-    }
-    if (!undefined                           || !undefined                        ) {
-      return new Response(JSON.stringify({
-        message: "Server misconfiguration: FROM_EMAIL or TO_EMAIL missing."
-      }), {
-        status: 500
-      });
-    }
-    await resend.emails.send({
-      from: undefined                          ,
-      to: undefined                        ,
-      subject: `New Project Inquiry from ${name}`,
-      reply_to: email,
-      html: `
-		<p><strong>New Inquiry Received!</strong></p>
-		<hr>
-		<p><strong>Name:</strong> ${name}</p>
-		<p><strong>Email:</strong> ${email}</p>
-		<p><strong>Message:</strong></p>
-		<p>${message.replace(/\n/g, "<br>")}</p>
-	  `
-    });
-    console.log("Email sent successfully!");
     return new Response(JSON.stringify({
-      message: "Success! Your inquiry has been sent."
+      message: "Your inquiry has been sent successfully!"
     }), {
       status: 200
     });
