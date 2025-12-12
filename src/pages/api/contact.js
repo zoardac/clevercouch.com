@@ -9,7 +9,7 @@ async function sendProjectInquiry(name, email, message) {
 	try {
 		const { data, error } = await resend.emails.send({
 			from: 'onboarding@resend.dev',
-			to: 'your-personal-email@gmail.com',   // replace with your real email
+			to: 'brad.mclaughlin@gmail.com',   // replace with your real email
 			subject: `New Project Inquiry from ${name}`,
 			reply_to: email,
 			html: `
