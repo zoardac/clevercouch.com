@@ -1,3 +1,4 @@
+console.log("RESEND key exists:", !!import.meta.env.RESEND_API_KEY);
 export const prerender = false;
 
 import { Resend } from 'resend';

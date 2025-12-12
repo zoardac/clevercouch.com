@@ -1,6 +1,7 @@
 import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
+console.log("RESEND key exists:", true);
 const prerender = false;
 const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC");
 const POST = async ({
