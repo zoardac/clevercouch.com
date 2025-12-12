@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force the browser to show text immediately while Adobe loads */
+@font-face {
+  font-family: "nimbus-sans";
+  font-display: swap;
+}
+
 /* The rest of your CSS, like @layer base, goes here */
 
 /* 
