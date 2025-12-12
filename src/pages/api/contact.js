@@ -8,7 +8,7 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 async function sendProjectInquiry(name, email, message) {
 	try {
 		const { data, error } = await resend.emails.send({
-			from: 'onboarding@resend.dev',
+			from: 'brad@clevercouch.com',
 			to: 'brad.mclaughlin@gmail.com',   // replace with your real email
 			subject: `New Project Inquiry from ${name}`,
 			reply_to: email,
