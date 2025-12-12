@@ -11,8 +11,7 @@ const POST = async ({
     const name = formData.get("name")?.toString();
     const email = formData.get("email")?.toString();
     const message = formData.get("message")?.toString();
-    console.log("Form submission received:");
-    console.log({
+    console.log("Form submission received:", {
       name,
       email,
       message
@@ -21,7 +20,6 @@ const POST = async ({
     console.log("FROM_EMAIL:", undefined                          );
     console.log("TO_EMAIL:", undefined                        );
     if (!name || !email || !message) {
-      console.warn("Missing one or more required fields");
       return new Response(JSON.stringify({
         message: "Missing required fields.",
         debug: {
@@ -34,7 +32,6 @@ const POST = async ({
       });
     }
     if (!resend) {
-      console.error("Resend API key is missing!");
       return new Response(JSON.stringify({
         message: "Server misconfiguration: Resend API key missing."
       }), {
@@ -42,7 +39,6 @@ const POST = async ({
       });
     }
     if (!undefined                           || !undefined                        ) {
-      console.error("FROM_EMAIL or TO_EMAIL not set");
       return new Response(JSON.stringify({
         message: "Server misconfiguration: FROM_EMAIL or TO_EMAIL missing."
       }), {
