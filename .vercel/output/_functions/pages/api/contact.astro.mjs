@@ -1,9 +1,8 @@
 import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
-console.log("RESEND key exists:", true);
 const prerender = false;
-const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC");
+const resend = new Resend("re_6EWnSeem_DLsU4n3h3gSm3uiKfmVnzvpC") ;
 const POST = async ({
   request
 }) => {
@@ -12,11 +11,42 @@ const POST = async ({
     const name = formData.get("name")?.toString();
     const email = formData.get("email")?.toString();
     const message = formData.get("message")?.toString();
+    console.log("Form submission received:");
+    console.log({
+      name,
+      email,
+      message
+    });
+    console.log("Resend API key exists:", true);
+    console.log("FROM_EMAIL:", undefined                          );
+    console.log("TO_EMAIL:", undefined                        );
     if (!name || !email || !message) {
+      console.warn("Missing one or more required fields");
       return new Response(JSON.stringify({
-        message: "Missing required fields."
+        message: "Missing required fields.",
+        debug: {
+          name,
+          email,
+          message
+        }
       }), {
         status: 400
+      });
+    }
+    if (!resend) {
+      console.error("Resend API key is missing!");
+      return new Response(JSON.stringify({
+        message: "Server misconfiguration: Resend API key missing."
+      }), {
+        status: 500
+      });
+    }
+    if (!undefined                           || !undefined                        ) {
+      console.error("FROM_EMAIL or TO_EMAIL not set");
+      return new Response(JSON.stringify({
+        message: "Server misconfiguration: FROM_EMAIL or TO_EMAIL missing."
+      }), {
+        status: 500
       });
     }
     await resend.emails.send({
@@ -33,6 +63,7 @@ const POST = async ({
 		<p>${message.replace(/\n/g, "<br>")}</p>
 	  `
     });
+    console.log("Email sent successfully!");
     return new Response(JSON.stringify({
       message: "Success! Your inquiry has been sent."
     }), {
@@ -41,7 +72,8 @@ const POST = async ({
   } catch (err) {
     console.error("Error sending email:", err);
     return new Response(JSON.stringify({
-      message: "Server error."
+      message: "Server error.",
+      error: err.toString()
     }), {
       status: 500
     });
