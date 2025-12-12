@@ -1,21 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import "../styles/global.css"
+import TopNavigation from '../components/TopNavigation.astro';
+import Content from '../components/Content.astro';
+import AboutUs from '../components/AboutUs.astro';
+import ContactUs from '../components/ContactUs.astro';
+import Footer from '../components/Footer.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-console.log('This runs in your terminal, not the browser!');
 ---
-<!-- Below is your "component template." It's just HTML, but with
-	some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
-	<h1>Hello, World!</h1>
-  </body>
-</html>
-<style>
-  h1 {
-	color: orange;
-  }
-</style>
+
+<Layout>
+	<TopNavigation />
+	<Content />
+	<AboutUs />
+	<ContactUs />
+	<Footer />
+</Layout>
